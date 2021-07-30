@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ https://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ <!-- Engine Bean -->
+ <bean id="en" class="org.ram.consInjectApp.Engine">
+ <constructor-arg name="engineNumber" value="123"/>
+ <constructor-arg name="horsePower" value="160"/>
+ <constructor-arg name="engineType" value="Petrol"/>
+ </bean>
+ 
+  <!-- BMW Bean -->
+  <bean id="bm" class="org.ram.consInjectApp.BmwImpl">
+  <constructor-arg name="id" value="726"/>
+  <constructor-arg name="color" value="Black"/>
+  <constructor-arg name="engine" ref="en"/>
+  <constructor-arg name="wheels">
+  <list>
+  <value>Wheel-1</value>
+  <value>Wheel-2</value>
+  <value>Wheel-3</value>
+  <value>Wheel-4</value>
+  </list>
+  </constructor-arg>
+  </bean>
+  
+   <!-- Audi Bean -->
+   <bean id="ad" class="org.ram.consInjectApp.AudiImpl"/>
+
+</beans>
